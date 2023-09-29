@@ -10,9 +10,9 @@ const Home = () => {
   return (
     <div className="d-flex justify-content-center align-items-center bg-primary vh-100">
       <nav className="text-white">
-        <h1>Fakebook</h1>
-        <button className="btn btn-success rounded-0" onClick={handleLogout}>
-          Logout
+        <h1>FakeBook</h1>
+        <button className="btn btn-danger rounded-0" onClick={handleLogout}>
+          <strong>Logout</strong>
         </button>
       </nav>
     </div>

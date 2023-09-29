@@ -110,7 +110,7 @@ function SignUp() {
             to="/login"
             className="btn btn-default border w-100 bg-light rounded-0 text-decoration-none"
           >
-            Login
+            <strong>Login</strong>
           </Link>
         </form>
       </div>

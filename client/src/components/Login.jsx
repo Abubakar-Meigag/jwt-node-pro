@@ -9,7 +9,6 @@ function Login() {
   });
   const [error, setError] = useState("");
   
-
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
