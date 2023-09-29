@@ -19,14 +19,17 @@ function Login() {
     try {
       const url = "http://localhost:5080/api/auth";
       const { data: res } = await axios.post(url, data);
-        localStorage.setItem('token', res.dat);
+        localStorage.setItem('token', res.data);
         window.location = '/'
       console.log(res.message);
     } catch (error) {
+        console.log(error);
+        console.log("Error status:", error.response.status);
+        console.log("Error message:", error.response.data.message);
       if (
         error.response &&
         error.response.status >= 400 &&
-        error.response.status >= 500
+        error.response.status <= 500
       ) {
         setError(error.response.data.message);
       }
@@ -36,7 +39,7 @@ function Login() {
   return (
     <div className="d-flex justify-content-center align-items-center bg-primary vh-100">
       <div className="bg-white  p-3 rounded w-25">
-        <h2 className="mb-2">Log in to Your Account</h2>
+        <h2 className="mb-2">Log in</h2>
 
         <form onSubmit={handleSubmit}>
 

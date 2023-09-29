@@ -27,7 +27,7 @@ function SignUp() {
           if (
             error.response &&
             error.response.status >= 400 &&
-            error.response.status >= 500
+            error.response.status <= 500
           ) {
             setError(error.response.data.message);
           }
@@ -37,7 +37,7 @@ function SignUp() {
   return (
     <div className="d-flex justify-content-center align-items-center bg-primary vh-100">
       <div className="bg-white  p-3 rounded w-25">
-        <h2 className="mb-2">Sign-Up</h2>
+        <h2 className="mb-2">Sign Up</h2>
 
         <form onSubmit={handleSubmit}>
           <div className="mb-3">

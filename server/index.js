@@ -8,7 +8,7 @@ const authRoutes = require("./routes/auth");
 
 const port = process.env.PORT || 5080;
 
-// connection();
+connection();
 
 app.use(cors());
 app.use(express.json());

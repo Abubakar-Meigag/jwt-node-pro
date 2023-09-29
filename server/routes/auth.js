@@ -6,8 +6,9 @@ const Joi = require("joi");
 router.post("/", async (req, res) => {
   try {
     const { error } = validate(req.body);
+    console.log("Request body:", req.body);
     if (error)
-      return res.status(400).send({ messga: error.details[0].message });
+      return res.status(400).send({ message: error.details[0].message });
 
     const user = await User.findOne({ email: req.body.email });
     if (!user)
@@ -17,12 +18,13 @@ router.post("/", async (req, res) => {
       req.body.password,
       user.password
     );
-    if (validPassword)
+    if (!validPassword)
       return res.status(401).send({ message: "Invalid Email or Password" });
 
     const token = user.generateAuthToken();
     res.status(200).send({ data: token, message: "Logged in successfully" });
   } catch (error) {
+    console.log({error})
     res.status(500).send("Internal Server Error");
   }
 });
